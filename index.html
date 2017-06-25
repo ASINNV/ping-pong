@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="name-of-the-game">Donkey Pong</h1>
+    <div class="ui">
+      <div class="ui-element">
+        <h4 class="count-title header">SCORE</h4>
+        <h1 id="counter">0</h1>
+      </div>
+      <div class="ui-element best">
+        <h4 class="highscore-title header">BEST</h4>
+        <h1 id="highscore">0</h1>
+      </div>
+    </div>
+    <div id="canvas-box" class="canvas-container">
+      <canvas id="gameCanvas" width="800" height="450">
+      </canvas>
+      <h1 id="pause-screen">PAUSED</h1>
+      <h1 id="start-screen">Press Start to Begin</h1>
+    </div>
+    <div class="buttons">
+      <button type="button" id="red" name="red" class="red">RED</button><button type="button" id="green" name="green" class="green">GREEN</button><button type="button" id="blue" name="blue" class="blue">BLUE</button><button type="button" id="orange" name="orange" class="orange">TAN</button>
+    </div>
+    <div class="console">
+      <div class="menu">
+          <div class="menu-item" id="play">
+            <p id="opposite" class="line"></p>
+            <p id="adjacent" class="line"></p>
+            <p id="hypotenuse" class="line"></p>
+          </div>
+          <p id="start-label" class="label">start</p>
+      </div>
+      <div class="speed-container">
+          <button id="up" type="button" name="button">&uarr;</button>
+          <p id="speed-counter" class="speed">0</p>
+          <button id="down" type="button" name="button">&darr;</button>
+          <p class="label">velocity</p>
+      </div>
+
+    </div>
+
+
+
+<script src="script.js" charset="utf-8"></script>
+</body>
+
+</html>
