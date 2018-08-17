@@ -27,7 +27,6 @@ var velocityY = 5;
 var PADDLE_HEIGHT = 100;
 // var PADDLE_WIDTH = 10;
 var framesPerSecond = 48;
-var paddle1Y = 200;
 var paddle2Y = 150;
 
 var getRandomIntInclusive = function(min, max) {
@@ -57,8 +56,8 @@ var drawCircle = function(centerX, centerY, radius, drawColor) {
 var drawEverything = function() {
   // Draws the background
   drawElement(0, 0, canvas.width, canvas.height, bgColor);
-  // Draws Player1 paddle
-  drawElement(canvas.width - 20, paddle1Y, 10, 100, "white");
+  // Draws right barrier
+  drawElement(canvas.width - 10, 0, 10, canvas.height, "white");
   // Draws Player2 paddle
   drawElement(10, paddle2Y, 10, 100, "white");
   // Draws the puck
@@ -135,8 +134,8 @@ var ballReset = function() {
 };
 
 var moveEverything = function() {
-  if (ballXPosition > canvas.width - ballRadius - 20) {
-    if (ballYPosition > paddle1Y && ballYPosition < paddle1Y + PADDLE_HEIGHT) {
+  if (ballXPosition > canvas.width - ballRadius - 10) {
+    if (ballYPosition < canvas.height && ballYPosition > 0) {
       velocityX *= -1;
       count++;
       if (count >= highscore) {
@@ -156,7 +155,7 @@ var moveEverything = function() {
     leaderboard.innerText = highscore;
     counter.innerText = count;
   }
-  if (ballXPosition < 0 + ballRadius + 20) {
+  if (ballXPosition < ballRadius + 20) {
     if (ballYPosition > paddle2Y && ballYPosition < paddle2Y + PADDLE_HEIGHT) {
       velocityX *= -1;
       count++;
@@ -242,7 +241,7 @@ window.onload = function() {
     speedCounter.innerText = velocityX;
     canvas.addEventListener('mousemove', function(e) {
         var mousePos = calculateMousePosition(e);
-        paddle2Y = paddle1Y = mousePos.y - PADDLE_HEIGHT/2;
+        paddle2Y = mousePos.y - PADDLE_HEIGHT/2;
     });
 
     start_screen.addEventListener('click', startGame);
