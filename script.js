@@ -137,10 +137,10 @@ var moveEverything = function() {
   if (ballXPosition > canvas.width - ballRadius - 10) {
     if (ballYPosition < canvas.height && ballYPosition > 0) {
       velocityX *= -1;
-      count++;
-      if (count >= highscore) {
-        highscore = count;
-      }
+      // count++;
+      // if (count >= highscore) {
+      //   highscore = count;
+      // }
     } else {
         clearInterval(window.interval);
         window.interval = null;
